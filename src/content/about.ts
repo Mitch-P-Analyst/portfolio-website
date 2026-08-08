@@ -1,7 +1,7 @@
 export const about = {
   intro: "I help improve operations with analysis, automation, and applied modeling.",
   bio: [
-    "I'm Mitchell, a data analyst with foundations in logistics, e-commerce, and sustainability-focused operations. I pair rigorous analysis with human-centred thinking, building automations and analysis pipelines that turn messy data into clear decisions.",
+    "I'm Mitchell, a data professional with foundations in logistics, e-commerce, and sustainability-focused operations. I pair rigorous analysis with human-centred thinking, building automations and scientific pipelines that turn messy data into clear decisions.",
     "My path runs from laboratory work to inventory forecasting, growing e-commerce platforms, coordinating global freight, launching carbon-neutral initiatives, and redesigning internal processes for efficiency.",
     "I care about building systems and products that teams actually use. Working inside small, fast-moving organisations, I've seen how data guides strategy, reduces complexity, and unlocks growth.",
     "With a background in psychology and years in hospitality, I understand how people interpret information, skills that translate directly to analysis and communication.",
@@ -15,5 +15,5 @@ export const about = {
   ],
   mission:
     "My aim is to help organisations thrive in the face of a changing environment — whether that's building and analysing databases of successful environmental initiatives, extracting regional climate insights to inform government action, producing vision model projects to identify reforestation, building data pipelines in small businesses to enhance efficiency, or assessing the impact of Canada's wildfire seasons on public health and economic growth.",
-  status: ["Canadian Permanent Resident", "New Zealand Citizen"],
+  status: ["Canadian Citizen", "New Zealand Citizen"],
 };

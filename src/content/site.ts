@@ -1,6 +1,6 @@
 export const site = {
   name: "Mitchell Palmer",
-  title: "Scientific Data Analyst",
+  title: "Data & Operations",
   tagline: "Turning operational data into decisions and efficiency.",
   email: "mitchellpalmer6@gmail.com",
   description:
@@ -18,6 +18,6 @@ export const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mitchell-palmer-188279283/" },
   { label: "GitHub", href: "https://github.com/Mitch-P-Analyst" },
   { label: "Kaggle", href: "https://www.kaggle.com/mitchellpalmer9599" },
-  { label: "Tableau", href: "https://public.tableau.com/app/profile/mitchell.palmer/vizzes" },
+  // { label: "Tableau", href: "https://public.tableau.com/app/profile/mitchell.palmer/vizzes" },
   { label: "Instagram", href: "https://www.instagram.com/miitchyp/" },
 ];

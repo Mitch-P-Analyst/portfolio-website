@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="container-page pb-8 text-xs text-mono">
-        © {new Date().getFullYear()} {site.name}. Built by hand, not by Webflow.
+        © {new Date().getFullYear()} {site.name}.
       </div>
     </footer>
   );

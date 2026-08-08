@@ -25,7 +25,7 @@ export default function AboutPage() {
 
           <div className="relative mt-10 aspect-[3/2] w-full overflow-hidden rounded-2xl bg-surface">
             <Image
-              src="/images/site/portrait-secondary.jpg"
+              src="/images/site/about-extra.jpg"
               alt={site.name}
               fill
               sizes="(max-width: 768px) 100vw, 640px"
