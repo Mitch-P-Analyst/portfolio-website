@@ -1,0 +1,65 @@
+---
+title: "European Alps Snowpack Depths"
+description: "PostgreSQL and Python project analysing monthly snowpack trends across the European Alps using data from 2,794 weather stations. Focused on visualising seasonal changes, geographical differences, and high-elevation declines."
+image: "/images/projects/euro-snowpack.jpg"
+heroImage: "/images/projects/hero/euro-snowpack.jpg"
+featured: true
+link: { label: "GitHub Repository", href: "https://github.com/Mitch-P-Analyst/Europe_Snowpack_Depths.git" }
+skills:
+  - Geospatial querying (PostGIS)
+  - SQL aggregation
+  - Seasonal trend analysis
+  - Data cleaning
+  - Statistical testing
+  - Interactive dashboards
+tools:
+  - PostgreSQL (PostGIS)
+  - Python (Pandas, GeoPandas, Plotly, Dash)
+  - Jupyter
+  - GIS data
+  - Theil–Sen regression
+  - Mann–Kendall tests
+---
+
+### Project Overview
+
+This project examines monthly snowpack depth trends across the European Alps from 1936–2019. Using PostgreSQL, Python, and geospatial filtering within the Alpine Convention perimeter, I analysed how winter snowpack is changing over time across 2,794 stations.
+
+The goal was to compare **station-level (micro)** trends with **aggregated (macro)** trends across months, countries, and elevation bands. I applied non-parametric tests (**Mann–Kendall and Theil–Sen**) to quantify monotonic trends, and then wrapped the results into an interactive Dash app so users can explore patterns, test different groupings, and understand where and when declines are strongest.
+
+### Explore the Interactive Dashboard
+
+Use the interactive Dash app below to explore snowpack trends by month, country, and elevation band.
+
+- Filter by **country, month, and elevation band**.
+- Switch between **station-level distributions** and **aggregated summaries**.
+- Compare how trends differ between **core winter months** and **fringe months**.
+
+**Note:** the dashboard may take ~15 seconds to wake up on first load.
+
+<DashboardEmbed src="https://europe-snowpack-depths.onrender.com/" title="European Alps Snowpack Dashboard" />
+
+### Key Findings & Impact
+
+- **Winter snowpack is declining** across much of the European Alps, with the strongest, most statistically significant losses at **higher elevations** and during **early winter (November)** and **early spring (April)**.
+- **Italy, Slovenia, and Austria** show the clearest and most consistent declines, while France, Switzerland, and Germany display more muted or mixed signals.
+- **Aggregated series can be misleading.** Macro time series tend to overstate declines in core winter months and understate changes in shoulder months when compared to the median station-level trend.
+- The analysis reinforces the need to **interpret regional averages with caution**, especially for decisions in winter tourism, hydropower, and water-resource planning, where local station behaviour can differ from high-level summaries.
+
+### Data & Sources
+
+- **Primary dataset:** European Alps Snow Depth Observations — monthly snow depth (hnsum) for Alpine weather stations from 1864–2019, filtered to 1936–2019 to satisfy the ≥30 winters rule. [Zenodo.org Records #5109574](https://zenodo.org/records/5109574)
+- **Geospatial boundary:** Alpine Convention perimeter (2025 update), used as a mask to define the study region. [Alpine Convention Organisation](https://www.atlas.alpconv.org/layers/geonode_data:geonode:Alpine_Convention_Perimeter_2025)
+- **Final analysis sample:** 2,794 original stations → 795 stations after QA, 5,309 station-month time series used in the statistical analysis.
+
+The full details of schema design, SQL scripts, and notebook structure are documented in the GitHub repository.
+
+### Technical Details
+
+For those interested in implementation details, the GitHub repo includes:
+
+- **SQL scripts** for data loading, cleaning, and aggregated table creation
+- **Jupyter notebooks** for EDA, statistical testing, and figure generation
+- **Python modules** for custom functions and Dash figure definitions
+- **PostgreSQL / PostGIS-ready schema** plus notes on loading raw CSVs via `COPY`
+- **Installation** and **running** instructions for the local Dashboard application

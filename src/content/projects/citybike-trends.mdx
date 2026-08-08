@@ -1,0 +1,56 @@
+---
+title: "CityBike Trends in Lisbon, PT"
+description: "Explored how local business density and types (e.g., cafes, bars, restaurants) correlate with bike availability at Lisbon's CityBike stations. Integrated geospatial APIs, statistical modelling, and regression analysis."
+image: "/images/projects/citybike-lisbon.jpg"
+link: { label: "GitHub Repository", href: "https://github.com/Mitch-P-Analyst/CityBike-Lisbon-Analysis.git" }
+skills:
+  - Statistical Testing
+  - Regression Modelling
+  - Data Cleaning
+tools:
+  - Python
+  - PostgreSQL
+  - CityBike API
+  - Foursquare API
+---
+
+### Project Overview
+
+This project investigates whether surrounding businesses influence bike availability at Lisbon's CityBike stations. Using the CityBike and Foursquare APIs, I collected geospatial and venue-level data for over 9,600 locations near 195 stations. I then applied multivariate regression and statistical tests to evaluate predictors such as venue type, rating, and popularity.
+
+#### Objective
+
+Explore whether the types and density of nearby businesses (e.g., bars, cafés, restaurants) can help predict bike availability at Lisbon's CityBike stations, and assess whether this information is useful for planning station capacity.
+
+### Executive Summary
+
+Despite weak correlations overall, the **number of nearby bars and cafes showed minor, but statistically significant associations with bike availability**. This analysis highlights both the potential and limitations of using public venue data to understand urban mobility patterns.
+
+<PdfEmbed src="https://cdn.prod.website-files.com/6801c293be7074153497fde1/693216cc598b6dbc0440e855_Executive%20Summary%20_%20Citybike%20Lisbon_%20Location%20Data%20Modelling.pdf" />
+
+### Data & Approach
+
+- Combined **CityBike API** data (195 stations, later cleaned to 176) with **Foursquare API** venue data (≈9,600 locations within 1 km of stations).
+- Stored the integrated dataset in a **PostgreSQL** database for reproducibility and future analysis.
+- Addressed **Foursquare's 50-venue per query limit** by restricting venues to within 298 m of each station to reduce selection bias.
+- Conducted visual exploration (pairplots, scatterplots) and fitted **multivariate OLS regression models** relating business counts and popularity/ratings to the number of free bikes and total bike slots at each station.
+
+### Key Findings
+
+1. **Location types have limited predictive power.** Pairplots and scatterplots showed no clear visual relationships between business categories, popularity, or ratings and station metrics (free bikes, total slots).
+2. **Regression models explain only a small share of variation.** After removing highly collinear variables (ratings and popularity), the best multivariate model using **bar_count** and **cafe_counts** explains about **18% of the variance** in free bike availability (adjusted R² ≈ 0.18).
+3. **Bars and cafés are statistically significant, but not decisive.** Coefficients suggest that each additional bar within 298 m is associated with ~1.7 more free bikes, while each additional café is associated with ~0.7 fewer free bikes. Despite statistical significance at the 5% level, the overall effect is modest and not strong enough for operational decision-making on its own.
+
+### Conclusion
+
+Within this dataset, **nearby venue types and ratings are weak predictors of CityBike station availability**. While specific categories such as bars and cafés show statistically significant associations, they do not provide enough explanatory power to reliably guide station capacity planning. Other factors, such as time of day, day of week, seasonality, commuter flows, and neighbourhood demographics, are likely more important drivers of demand.
+
+#### Next Steps
+
+- Enrich the dataset with **temporal features** (hour, weekday/weekend, season).
+- Incorporate **demand-side context** such as proximity to transit hubs, employment centres, and residential density.
+- Re-run modelling with the expanded feature set, and consider non-linear or spatial models if relationships remain weak.
+
+### Repository & Technical Details
+
+For those interested, the GitHub repo includes Jupyter notebooks for EDA, prediction models, API calls and figure generation.

@@ -1,0 +1,32 @@
+---
+title: "Avalanche Canada Wildfire Explorer"
+description: "Interactive web application exploring wildfire perimeters within Avalanche Canada forecast regions. It includes localised and national summary statistics, plus a derived Burn Severity Patches layer using Landsat reflectance-based burn severity and a minimum patch-size threshold to highlight areas for follow-on assessment."
+image: "/images/projects/avalanche-wildfire.jpg"
+heroImage: "/images/projects/hero/avalanche-canada-wildfire-explorer.jpg"
+featured: true
+link: { label: "Wildfire Explorer application", href: "https://avalanche-canada-fire-explorer.streamlit.app/" }
+skills:
+  - Geospatial analysis (GIS)
+  - Remote sensing & burn severity (NBR/dNBR)
+  - Raster–vector workflows & patch extraction
+  - Interactive mapping & data storytelling
+  - Reproducibility & documentation
+tools:
+  - Python
+  - Google Earth Engine
+  - Streamlit
+  - Folium
+  - GeoPandas
+  - GeoParquet / GeoPackage
+  - GitHub
+---
+
+In 2025, several wildfires in the Sea to Sky corridor impacted our livelihoods for weeks, then quickly faded from view. It made me think about how many permanently scarred areas are scattered throughout the valleys, and the lasting impacts that remain. Over time, it becomes easy to lose track of what burned, where, and how these mountain landscapes are changing, even for people who live, work, and recreate in the mountains.
+
+Using the National Burned Area Composite (NBAC) from Natural Resources Canada (NRCan), since 1990 Canada has **averaged 1,132 fires/year**, burning **approximately 2,584,733 hectares annually** (25,847 km²) — roughly **half the area of Nova Scotia every year**. At that scale, I wanted a way to explore wildfire presence in the mountain regions that matter most to me.
+
+I built a Wildfire Explorer that overlays NBAC wildfire perimeters onto Avalanche Canada (AvCan) forecast regions to explore wildfire presence across mountain towns, forecast regions, and backcountry recreation areas.
+
+The Explorer also includes a derived layer called **Burn Severity Patches**, using Landsat reflectance-based burn severity plus a minimum patch-size threshold to highlight areas that may be worth follow-on assessment, such as forest structure and tree canopy openness, biomass density, species composition, and more.
+
+Click the **Wildfire Explorer application** link on this page to launch the Streamlit app. Use the interactive map to explore wildfire perimeters within Avalanche Canada forecast regions and review key summary statistics.

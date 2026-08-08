@@ -1,0 +1,69 @@
+---
+title: "Salifort Motors Attrition Rates"
+description: "A capstone project for the Google Advanced Data Analytics certification, this exploration investigates trends and variable associations through classification models between employee departures at the fictional Salifort Motors company."
+image: "/images/projects/salifort-attrition.jpg"
+featured: true
+link: { label: "GitHub Repository", href: "https://github.com/Mitch-P-Analyst/Salifort-Motors/blob/main/README.md" }
+skills:
+  - Machine Learning Models
+  - Exploratory Data Analysis
+  - PACE Model framework
+  - Data Cleaning
+  - Feature Engineering
+  - Visualisations
+  - Executive Summary
+tools:
+  - XGBoost
+  - Logistic Regression
+---
+
+### Project Overview
+
+As the capstone for the Google Advanced Data Analytics certificate, this project uses a fictional human-resources dataset from Kaggle to investigate attrition at Salifort Motors.
+
+With recent turnover at Salifort Motors, I was tasked with investigating the drivers of attrition and providing data-driven recommendations using machine-learning models to help mitigate future departures. If Salifort could **predict whether an employee will leave the company**, and discover the reasons behind their departure, they could better understand the problem and develop a solution. The goal is to **understand what makes an employee likely to leave.**
+
+### Executive Summary
+
+I analyzed a 15k-row human resources dataset for Salifort Motors to understand drivers of attrition. Data visualisation showed associations between key working environment variables and employee departure. I produced an Executive Summary for stakeholder communication to summarize the project's discoveries.
+
+<PdfEmbed src="https://cdn.prod.website-files.com/6801c293be7074153497fde1/6932003abbff8b1d28f9bf6a_Salifort%20Motors%20Executive%20Summary.pdf" />
+
+### Key Findings
+
+Employees with **more projects, higher monthly hours, longer tenure, and lower satisfaction were much more likely to leave**. This was first identified through visualisations of associated influencing variables, followed by machine learning models to predict employee attrition.
+
+#### Key Observations
+
+- Three identifiable clusters of employees who **departed** Salifort Motors: a Low Satisfaction Cluster (x ≤ 0.12), a Mid Satisfaction Cluster (0.31 ≤ x ≤ 0.48), and a High Satisfaction Cluster (x ≥ 0.70).
+- Majority of all **Low Satisfaction Level Employees who departed** were on **6 or 7 projects**.
+- Employee satisfaction level has visible associations with the **number of projects**; strong association with assignment to **6 and 7 different projects** and moderate association with assignment to **2 different projects**.
+- Additional factor **tenure** has moderate associations with employee satisfaction level for duration of **3 and 4 years**.
+
+#### Prediction Models
+
+Applying Logistic Regression and XGBoost models, I constructed a best-fitting prediction model to assess employee attrition, validating visualised variable associations. Using logistic regression as a baseline and a tuned XGBoost model for comparison.
+
+### Impact & Recommendations
+
+Employees working on **higher number of projects, a workload with higher monthly hours, longer tenure, lower satisfaction, are much more likely to leave**.
+
+Departed employees with the lowest satisfaction levels were assigned to **6 or 7 different projects**. Examining all employees, past and present, from data provided, employees assigned to 6 or 7 projects are associated with the **highest average monthly hours** and are **tenured employees around ≈4 years**.
+
+### Recommendations
+
+Reflecting upon the above visualisations and numbers presented in **Project Statistics**, this investigation recommends targeting the variables most strongly associated with **employee departure**.
+
+- **Rebalance project assignment.** Employees with the highest levels of mean satisfaction are assigned to 4 or 5 projects. **Restrict employees to a maximum of 5 projects.**
+- **Restrict employee hours.** Restrict **average monthly hours** for employees to the ranges presented by most satisfied employees, **a maximum of 230 hours**.
+
+#### Limitations & Next Steps
+
+Further steps to improve this investigation may include:
+
+- **Sourcing information on type of employee departure** (fired, redundant, resignation). The data shows significant quantities of employees departed with medium and high satisfaction levels, primarily from the collection of employees assigned to 2 projects and in the departments of sales and human resources. Distinguishing between how employees left Salifort may assist in analyzing where employee resources may be reassigned to compensate over-worked employees working on 6 or 7 projects.
+- **Assessing employee previous satisfaction levels.** The XGBoost model identifies **previous satisfaction levels** as a key indicator towards predicting an employee's eventual departure. Analysis of thresholds on satisfaction could provide potential risk management of employee attrition to monitor work environment and maintain sufficient satisfaction levels.
+
+### Repository & Technical Details
+
+For those interested, the GitHub repo includes Jupyter notebooks for EDA, prediction models, and figure generation.

@@ -1,0 +1,75 @@
+---
+title: "Tree Canopy Segmentation"
+description: "Data science competition hosted by Solafune, focused on training a machine learning model to detect tree canopies in diverse urban environments using aerial and satellite imagery."
+image: "/images/projects/tree-canopy.jpg"
+heroImage: "/images/projects/hero/tree-canopy-segmentation.jpg"
+link: { label: "GitHub Repository", href: "https://github.com/Mitch-P-Analyst/solafune_tree_canopy.git" }
+skills:
+  - Geospatial Machine Learning
+  - Image Segmentation (YOLO)
+  - Model Training & Evaluation
+  - Annotation Format Conversion (COCO ↔ YOLO)
+tools:
+  - Python
+  - Google Colab
+  - PyTorch
+  - YAML
+  - JSON
+  - COCO JSON
+  - GIS toolkits
+---
+
+### Data Non-Disclosure
+
+In accordance with the [Solafune Non-Disclosure Agreement](https://solafune.com/competitions/26ff758c-7422-4cd1-bfe0-daecfc40db70?menu=about&tab=terms&modal=%22%22#g-nondisclosure-agreement), all raw competition data is confidential. This project cannot be fully reproduced without access to the original training data via the Solafune competition page.
+
+Instructions for downloading the Solafune raw data (in line with their terms and conditions) are provided with this project.
+
+### Project Overview
+
+This project is my submission to Solafune's ***Tree Canopy Detection*** data science competition. I built a geospatial pipeline for tree canopy segmentation using Solafune's annotated Sentinel-2 imagery and a YOLO-based segmentation model. Using the ground-truth labels provided, I trained and validated models that run both locally and in Google Colab.
+
+My most successful training runs have benefited from data augmentation (colour grading, image scaling, rotation, etc.), improving the model's performance on the competition metric.
+
+#### Competition Submission
+
+Visit the [Solafune Tree Canopy Segmentation](https://solafune.com/competitions/26ff758c-7422-4cd1-bfe0-daecfc40db70?menu=data&tab=&modal=%22%22) page to view my current leaderboard position and the competition's guidelines.
+
+#### Objective
+
+Solafune develops satellite and geospatial data analysis technologies by hosting worldwide data science competitions. This particular competition aims to address the problem of inaccurate vegetation segmentation in mixed urban environments. Poor segmentation can hinder infrastructure planning and maintenance, as well as efforts to classify and monitor vegetation health. Solafune's goal is to encourage innovative machine learning and geospatial AI approaches to improve this process.
+
+### Results
+
+- Best submission score: 0.338 (competition metric)
+- Model: YOLO-based tree canopy segmentation on Sentinel-2 imagery
+- Runs on: local machine + Google Colab
+
+### Approach
+
+My best submission score of 0.338 used a hold-out validation split to select augmentation strategies and model hyperparameters. I iterated on augmentation across visual parameters such as rotation, hue and saturation, and image scaling, as well as duplicating annotations to increase training exposure and improve the YOLO-based model's learning environment.
+
+For evaluation, I tracked precision and recall for both classes ("Individual Trees" and "Group of Trees") to tune confidence thresholds and IoU settings and optimise the competition metric.
+
+#### Future Scenarios
+
+For future iterations and projects, I plan to apply stratified k-fold cross-validation (grouped by source tile to prevent leakage and stratified by class presence) for more reliable performance estimates.
+
+To address the class imbalances (such as this project's "Individual Trees" and "Group of Trees"), I'll explore oversampling and targeted augmentation of the minority class, and tune class-specific confidence/IoU thresholds.
+
+### Lessons Learned
+
+- JSON label formatting and format conversion (COCO ↔ YOLO).
+- Maintaining a consistent directory structure for large-scale ML projects across local and cloud environments.
+- Benefits of augmentation techniques like HSV rotation, colour grading and image scaling.
+- Model validation techniques such as hold-out vs k-fold cross-validation.
+- Convolutions and convolutional neural networks.
+
+### Technical Details
+
+For those interested in implementation details, the GitHub repo includes:
+
+- **YAML configuration files** for modifying training, validation, and testing hyperparameters
+- **Jupyter notebooks** for unpacking and preparing data
+- **Google Colab notebook** for training the model in a cloud environment
+- **Python scripts** for training, validating, testing and exporting the competition submission
