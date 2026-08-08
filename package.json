@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "photos:check": "node scripts/check-photos.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
@@ -27,4 +28,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   }
+  
 }
