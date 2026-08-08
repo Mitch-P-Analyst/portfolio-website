@@ -58,7 +58,45 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
         </a>
       )}
 
-      <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl bg-surface">
+      <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        {frontmatter.techGroups ? (
+          Object.entries(frontmatter.techGroups).map(([group, items]) => (
+            <div key={group} className="flex flex-wrap items-center gap-2">
+              <p className="text-xs uppercase tracking-widest text-mono">{group}</p>
+              {items.map((item) => (
+                <span key={item} className="rounded-full bg-tint px-2.5 py-1 text-xs text-brand-dark">
+                  {item}
+                </span>
+              ))}
+            </div>
+          ))
+        ) : (
+          <>
+            {frontmatter.skills && (
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-xs uppercase tracking-widest text-mono">Skills</p>
+                {frontmatter.skills.map((item) => (
+                  <span key={item} className="rounded-full bg-tint px-2.5 py-1 text-xs text-brand-dark">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            )}
+            {frontmatter.tools && (
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-xs uppercase tracking-widest text-mono">Technologies / Tools</p>
+                {frontmatter.tools.map((item) => (
+                  <span key={item} className="rounded-full bg-surface border border-border/70 px-2.5 py-1 text-xs text-body">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+
+      <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl bg-surface">
         <Image
           src={heroImage}
           alt={frontmatter.title}
@@ -69,55 +107,9 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
         />
       </div>
 
-      <div className="mt-10 grid gap-10 md:grid-cols-[2fr_1fr]">
-        <article className="prose prose-neutral max-w-none prose-headings:font-serif prose-headings:text-ink prose-a:text-brand prose-a:no-underline hover:prose-a:text-brand-dark prose-strong:text-ink prose-blockquote:border-brand prose-blockquote:text-body prose-code:before:content-none prose-code:after:content-none prose-th:text-ink prose-img:rounded-xl">
-          {mdxContent}
-        </article>
-
-        <aside className="space-y-8">
-          {frontmatter.techGroups ? (
-            Object.entries(frontmatter.techGroups).map(([group, items]) => (
-              <div key={group}>
-                <p className="text-xs uppercase tracking-widest text-mono">{group}</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {items.map((item) => (
-                    <span key={item} className="rounded-full bg-tint px-2.5 py-1 text-xs text-brand-dark">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))
-          ) : (
-            <>
-              {frontmatter.skills && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-mono">Skills</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {frontmatter.skills.map((item) => (
-                      <span key={item} className="rounded-full bg-tint px-2.5 py-1 text-xs text-brand-dark">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {frontmatter.tools && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-mono">Technologies / Tools</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {frontmatter.tools.map((item) => (
-                      <span key={item} className="rounded-full bg-surface border border-border/70 px-2.5 py-1 text-xs text-body">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </>
-          )}
-        </aside>
-      </div>
+      <article className="prose-breakout prose prose-neutral mt-10 max-w-none prose-headings:font-serif prose-headings:text-ink prose-a:text-brand prose-a:no-underline hover:prose-a:text-brand-dark prose-strong:text-ink prose-blockquote:border-brand prose-blockquote:text-body prose-code:before:content-none prose-code:after:content-none prose-th:text-ink prose-img:rounded-xl">
+        {mdxContent}
+      </article>
     </div>
   );
 }

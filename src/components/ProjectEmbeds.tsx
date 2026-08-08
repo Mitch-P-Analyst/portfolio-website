@@ -1,6 +1,6 @@
 export function DashboardEmbed({ src, title }: { src: string; title?: string }) {
   return (
-    <div className="not-prose my-8 overflow-hidden rounded-2xl border border-border/70">
+    <div className="not-prose breakout my-8 overflow-hidden rounded-2xl border border-border/70">
       <iframe
         src={src}
         title={title ?? "Embedded dashboard"}
@@ -19,7 +19,7 @@ export function DashboardEmbed({ src, title }: { src: string; title?: string }) 
 
 export function PdfEmbed({ src }: { src: string }) {
   return (
-    <div className="not-prose my-8 overflow-hidden rounded-2xl border border-border/70">
+    <div className="not-prose breakout my-8 overflow-hidden rounded-2xl border border-border/70">
       <iframe src={src} loading="lazy" className="min-h-[700px] w-full border-0" />
       <p className="border-t border-border/70 bg-surface px-4 py-2 text-xs text-mono">
         Your browser doesn&apos;t support embedded PDFs.{" "}

@@ -44,3 +44,15 @@ body {
     padding-inline: 2.5rem;
   }
 }
+
+.prose-breakout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min(48rem, 100%) minmax(0, 1fr);
+}
+.prose-breakout > * {
+  grid-column: 2;
+}
+.prose-breakout > .breakout {
+  grid-column: 1 / -1;
+  width: 100%;
+}
