@@ -53,7 +53,7 @@ export default function Home() {
             <p>{about.intro}</p>
             <p>{about.bio[0]}</p>
             <Link href="/about" className="inline-block text-sm font-medium text-brand hover:text-brand-dark">
-              Read the full story →
+              Read my full story →
             </Link>
           </div>
         </div>
