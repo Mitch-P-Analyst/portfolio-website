@@ -9,9 +9,20 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
+    role: "Ecommerce & Digital Catalogue Manager",
+    org: "Climb On Equipment",
+    period: "May 2026 – On Going",
+    type: "Contract",
+    bullets: [
+      "Inherited a high-performing ecommerce store and an extensive SOP library. Core focus is maintaining catalog integrity across 4,000+ technical products and 10,000+ annual transactions: complex variant architecture, metafields and metaobjects, bulk operations via Matrixify, shipping profile logic, checkout flow, and SEO-preserving lifecycle management for discontinued SKUs.",
+      "Coordinating associates on a daily catalog workflows, and keeping the process documentation current as the platform and integrations evolve."
+    ],
+    tools: ["Google Workspace App Script", "Google Sheets", "Google Docs", "Shopify", "Matrixify", "HTML, CSS, Liquid, Javascript, Shopify Flow"],
+  },
+  {
     role: "Data Services Contractor",
     org: "Bella Coola Heli Sports",
-    period: "February 2026 – Ongoing",
+    period: "February 2026 – May 2026",
     type: "Contract",
     bullets: [
       "Building Single Source of Truth (SSOT) document infrastructure to eliminate duplicated data.",
